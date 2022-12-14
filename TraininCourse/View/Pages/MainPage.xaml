@@ -17,7 +17,7 @@
                     Width="950"
                     Height="500">
             <Grid>
-                <ListBox x:Name="listbox1" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox x:Name="LbCourseList" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel ItemHeight="160"

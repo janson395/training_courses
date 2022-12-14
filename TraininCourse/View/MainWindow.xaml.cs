@@ -24,7 +24,7 @@ namespace TraininCourse
     public partial class MainWindow : Window
     {
 
-        public bool isAuth = false;
+        public bool isAuth = true;
 
         public MainWindow()
         {
@@ -64,17 +64,10 @@ namespace TraininCourse
             MainUtil.FrameObject.Navigate(new MainPage());
         }
 
-
-        // кнопка открытия страницы со всеми курасми
-        private void BtnAllCourses_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
         // кнопка открытия страницы "Мои курсы"
         private void BtnMyCourses_Click(object sender, RoutedEventArgs e)
         {
-
+            MainUtil.FrameObject.Navigate(new ProfilePage());
         }
 
 
@@ -88,7 +81,7 @@ namespace TraininCourse
         // если пользователь авторизирован, то ему доступа кнопка, при нажатии на кторую открывается его профиль
         private void BtnOpenProfile_Click(object sender, RoutedEventArgs e)
         {
-
+            MainUtil.FrameObject.Navigate(new ProfilePage());
         }
     }
 }

@@ -54,10 +54,6 @@
                         Click="BtnMain_Click"
                         Background="Transparent"
                         BorderBrush="Transparent">Главная</Button>
-                <Button x:Name="BtnAllCourses"
-                        Click="BtnAllCourses_Click"
-                        Background="Transparent"
-                        BorderBrush="Transparent">Все курсы</Button>
                 <Button x:Name="BtnMyCourses"
                         Click="BtnMyCourses_Click"
                         Background="Transparent"
