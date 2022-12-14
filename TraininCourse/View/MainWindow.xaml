@@ -58,6 +58,11 @@
                         Click="BtnMyCourses_Click"
                         Background="Transparent"
                         BorderBrush="Transparent">Мои курсы</Button>
+                <Button x:Name="BtnAddCourse"
+                        Visibility="Collapsed"
+                        Click="BtnAddCourse_Click"
+                        Background="Transparent"
+                        BorderBrush="Transparent">Добавить курс</Button>
             </StackPanel>
         </StackPanel>
 
@@ -74,11 +79,11 @@
                     <StackPanel 
                         Orientation="Horizontal">
 
-                        <Image Width="26"
-                           Height="26"
-                           Source="/Images/ic_user.png"
-                           x:Name="ImgUserAva"
-                           HorizontalAlignment="Left"/>
+                        <Ellipse Width="26" Height="26">
+                            <Ellipse.Fill>
+                                <ImageBrush x:Name="ImgUserAva" ImageSource="/Images/ic_user.png" />
+                            </Ellipse.Fill>
+                        </Ellipse>
                         <TextBlock 
                             HorizontalAlignment="Right"
                             VerticalAlignment="Center"

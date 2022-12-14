@@ -14,8 +14,9 @@ namespace TraininCourse.Core.lib
         public string Name { get; set; } // имя курса
         public BitmapImage Path { get; set; } // изображение курса
 
-        public CourseList(string name, string url)
+        public CourseList(int id, string name, string url)
         {
+            this.Id = id;
             this.Name = name; // имя курса
 
             // скачиваем и преобразуем каритнку в bitmap

@@ -17,7 +17,9 @@
                     Width="950"
                     Height="500">
             <Grid>
-                <ListBox x:Name="LbCourseList" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox x:Name="LbCourseList" 
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                         SelectionChanged="LbCourseList_SelectionChanged">
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel ItemHeight="160"
@@ -27,20 +29,24 @@
                     </ListBox.ItemsPanel>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel HorizontalAlignment="Center"
-                                        Background="#1F2434"> 
-                                <Image 
+                            <Border Background="#1F2434"
+                                    CornerRadius="8">
+                                <StackPanel HorizontalAlignment="Center">
+                                    <Image 
                                         Source="{Binding Path}"
                                         Width="229"
                                         Height="125"/>
-                                <TextBlock
-                                    HorizontalAlignment="Center"
-                                       Margin="0 2 0 0"
-                                       Text="{Binding Name}"
-                                       FontFamily="Lato"
-                                       FontSize="14"
-                                       Foreground="White" />
-                            </StackPanel>
+                                    <TextBlock
+                                        TextAlignment="Left"
+                                        HorizontalAlignment="Center"
+                                        TextTrimming="CharacterEllipsis" 
+                                        Margin="0 2 0 0"
+                                        Text="{Binding Name}"
+                                        FontFamily="Lato"
+                                        FontSize="14"
+                                        Foreground="White" />
+                                </StackPanel>
+                            </Border>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>

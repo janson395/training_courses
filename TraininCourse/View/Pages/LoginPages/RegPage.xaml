@@ -58,7 +58,7 @@
                                                  Margin="0 7 5 0"
                                                  Foreground="#cfcfcf"/>
                         <TextBox Width="150"
-                                   x:Name="TbLogin"
+                                   x:Name="TbEmail"
                                    FontSize="15"
                                    Foreground="#cfcfcf"
                                    materialDesign:HintAssist.Hint="Введите почту"

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,8 +14,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TraininCourse.Core;
+using TraininCourse.Core.lib;
+using TraininCourse.Model;
 using TraininCourse.View.Pages;
 using TraininCourse.View.Pages.LoginPages;
+using TraininCourse.View.Pages.Profile;
 
 namespace TraininCourse
 {
@@ -24,26 +28,18 @@ namespace TraininCourse
     public partial class MainWindow : Window
     {
 
-        public bool isAuth = true;
+        public bool isAuth = false;
 
         public MainWindow()
         {
             InitializeComponent();
 
             MainUtil.FrameObject = MainWindowFrame;
+            MainUtil.DB = new CourseVestEntities();
             MainWindowFrame.Navigate(new MainPage());
 
-
-            if (!isAuth)
-            {
-                BtnOpenProfile.Visibility = Visibility.Collapsed;
-                SPLogin.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                SPLogin.Visibility = Visibility.Collapsed;
-                BtnOpenProfile.Visibility = Visibility.Visible;
-            }
+            BtnOpenProfile.Visibility = Visibility.Collapsed;
+            SPLogin.Visibility = Visibility.Visible;
 
         }
 
@@ -82,6 +78,42 @@ namespace TraininCourse
         private void BtnOpenProfile_Click(object sender, RoutedEventArgs e)
         {
             MainUtil.FrameObject.Navigate(new ProfilePage());
+        }
+
+        private void BtnAddCourse_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        public void authSuccess()
+        {
+            if (!isAuth)
+            {
+                BtnOpenProfile.Visibility = Visibility.Collapsed;
+                SPLogin.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                SPLogin.Visibility = Visibility.Collapsed;
+                BtnOpenProfile.Visibility = Visibility.Visible;
+
+                TbUserName.Text = MainUtil.MyPerson.FirstName.Trim() + " " + MainUtil.MyPerson.LastName[0] + ".";
+
+
+                if(MainUtil.MyPerson.Avatar != null)
+                {
+                    ImgUserAva.ImageSource = new ImageLoader(MainUtil.MyPerson.Avatar).bitmap;
+                }
+
+                if(MainUtil.MyPerson.RoleID > 1)
+                {
+                    BtnAddCourse.Visibility = Visibility.Visible;
+                } 
+                else
+                {
+                    BtnAddCourse.Visibility = Visibility.Collapsed;
+                }
+            }
         }
     }
 }

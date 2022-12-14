@@ -13,7 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TraininCourse.Core;
 using TraininCourse.Core.lib;
+using TraininCourse.Model;
 
 namespace TraininCourse.View.Pages
 {
@@ -22,17 +24,28 @@ namespace TraininCourse.View.Pages
     /// </summary>
     public partial class MainPage : Page
     {
-
+        List<CourseList> courseList;
         public MainPage()
         {
             InitializeComponent();
 
-            List<CourseList> courseList = new List<CourseList>();
+            courseList = new List<CourseList>();
 
-            courseList.Add(new CourseList("Курсы по HTML", "https://sun1-19.userapi.com/impg/17o1LzYO6PI5NEDK2kRcYor0EXI7Flta59ToFQ/Yq2Ka7_t2eM.jpg?size=1280x960&quality=96&sign=235ab3bbbcb2861879346839ba8e0feb&type=album"));
-            courseList.Add(new CourseList("Курсы по HTML", "https://sun1-19.userapi.com/impg/17o1LzYO6PI5NEDK2kRcYor0EXI7Flta59ToFQ/Yq2Ka7_t2eM.jpg?size=1280x960&quality=96&sign=235ab3bbbcb2861879346839ba8e0feb&type=album"));
+            foreach (Cours courses in MainUtil.DB.Courses)
+            {
+                courseList.Add(new CourseList(courses.CoursesID, courses.Title, courses.Preview));
+            }
+
 
             LbCourseList.ItemsSource = courseList;
+
+            
+        }
+
+        private void LbCourseList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ListBox listbox = (ListBox)sender;
+            MessageBox.Show(listbox.SelectedIndex.ToString()) ;
         }
     }
 }
