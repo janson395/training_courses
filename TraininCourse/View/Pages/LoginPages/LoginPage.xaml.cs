@@ -30,34 +30,7 @@ namespace TraininCourse.View.Pages.LoginPages
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                User userModel = MainUtil.DB.Users.FirstOrDefault(u =>
-                u.Email == TbEmail.Text &&
-                u.Password == TsbPassword.Password);
-
-                if(userModel == null) {
-                    MessageBox.Show("Ошибка данных",
-                        "Системное сообщение",
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Error);
-                } 
-                else
-                {
-                    MainUtil.MyPerson = userModel;
-                    //Application.Current.MainWindow.
-                    ((MainWindow)Application.Current.MainWindow).isAuth = true; // ставим флаг, что пользователь авторизирован
-                    ((MainWindow)App.Current.MainWindow).authSuccess(); // вызываем метод успешной авторизации
-                    MainUtil.FrameObject.Navigate(new MainPage());
-                }
-            } 
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString(),
-                    "Системная ошибка",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
-            }
+            MainUtil.auth(TbEmail.Text, TsbPassword.Password);
         }
 
         private void BtnReg_Click(object sender, RoutedEventArgs e)
