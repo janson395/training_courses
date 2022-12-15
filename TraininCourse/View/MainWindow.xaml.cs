@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.Sqlite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Policy;
@@ -15,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TraininCourse.Core;
 using TraininCourse.Core.lib;
+using TraininCourse.Core.lib.DB;
 using TraininCourse.Model;
 using TraininCourse.View.Pages;
 using TraininCourse.View.Pages.LoginPages;
@@ -29,6 +31,7 @@ namespace TraininCourse
     {
 
         public bool isAuth = false;
+        public AuthDB _authDB;
 
         public MainWindow()
         {
@@ -40,6 +43,9 @@ namespace TraininCourse
 
             BtnOpenProfile.Visibility = Visibility.Collapsed;
             SPLogin.Visibility = Visibility.Visible;
+
+            _authDB = new AuthDB();
+            
 
         }
 

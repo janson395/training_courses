@@ -34,14 +34,16 @@ namespace TraininCourse.Core
                 }
                 else
                 {
+                    
+
                     MainUtil.MyPerson = userModel;
                     //Application.Current.MainWindow.
                     ((MainWindow)Application.Current.MainWindow).isAuth = true; // ставим флаг, что пользователь авторизирован
                     ((MainWindow)Application.Current.MainWindow).authSuccess(); // вызываем метод успешной авторизации
+
                     MainUtil.FrameObject.Navigate(new MainPage());
 
-                    AuthDB authDB = new AuthDB();
-                    authDB.create(email, pass);
+                    
 
                     return true;
                 }
@@ -54,7 +56,6 @@ namespace TraininCourse.Core
                     MessageBoxImage.Error);
             }
 
-            return false;
             return false;
         }
 

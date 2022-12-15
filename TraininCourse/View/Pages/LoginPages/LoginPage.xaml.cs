@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TraininCourse.Core;
 using TraininCourse.Core.lib;
+using TraininCourse.Core.lib.DB;
 using TraininCourse.Model;
 
 namespace TraininCourse.View.Pages.LoginPages
@@ -31,6 +32,8 @@ namespace TraininCourse.View.Pages.LoginPages
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
             MainUtil.auth(TbEmail.Text, TsbPassword.Password);
+            AuthDB authDB = new AuthDB();
+            authDB.create(TbEmail.Text, TsbPassword.Password);
         }
 
         private void BtnReg_Click(object sender, RoutedEventArgs e)

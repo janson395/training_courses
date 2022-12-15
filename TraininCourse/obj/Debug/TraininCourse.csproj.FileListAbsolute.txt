@@ -121,3 +121,17 @@ C:\Users\janso\Desktop\training_courses\TraininCourse\obj\Debug\TraininCourse_Co
 C:\Users\janso\Desktop\training_courses\TraininCourse\obj\Debug\View\Pages\Courses\CourseDescPage.baml
 C:\Users\janso\Desktop\training_courses\TraininCourse\obj\Debug\View\Pages\Profile\ProfilePage.baml
 C:\Users\janso\Desktop\training_courses\TraininCourse\obj\Debug\View\Pages\Profile\SettingPage.baml
+C:\Users\Sanya\source\repos\training_courses\TraininCourse\bin\Debug\Microsoft.Data.Sqlite.dll
+C:\Users\Sanya\source\repos\training_courses\TraininCourse\bin\Debug\SQLitePCLRaw.batteries_v2.dll
+C:\Users\Sanya\source\repos\training_courses\TraininCourse\bin\Debug\SQLitePCLRaw.core.dll
+C:\Users\Sanya\source\repos\training_courses\TraininCourse\bin\Debug\SQLitePCLRaw.provider.dynamic_cdecl.dll
+C:\Users\Sanya\source\repos\training_courses\TraininCourse\bin\Debug\System.Buffers.dll
+C:\Users\Sanya\source\repos\training_courses\TraininCourse\bin\Debug\System.Memory.dll
+C:\Users\Sanya\source\repos\training_courses\TraininCourse\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Sanya\source\repos\training_courses\TraininCourse\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Sanya\source\repos\training_courses\TraininCourse\bin\Debug\Microsoft.Data.Sqlite.xml
+C:\Users\Sanya\source\repos\training_courses\TraininCourse\bin\Debug\System.Buffers.xml
+C:\Users\Sanya\source\repos\training_courses\TraininCourse\bin\Debug\System.Memory.xml
+C:\Users\Sanya\source\repos\training_courses\TraininCourse\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Sanya\source\repos\training_courses\TraininCourse\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Sanya\source\repos\training_courses\TraininCourse\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
