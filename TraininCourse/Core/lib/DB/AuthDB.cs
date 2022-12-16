@@ -13,7 +13,6 @@ namespace TraininCourse.Core.lib.DB
     {
         private string _name = "userAuth.db";
 
-
         public AuthDB()
         {
             using (var conn = new SqliteConnection("Data Source=" + _name))
@@ -32,14 +31,12 @@ namespace TraininCourse.Core.lib.DB
                         if (reader.HasRows)
                         {
                             reader.Read();
-                            MessageBox.Show(reader.GetValue(1).ToString() + " | " + reader.GetValue(2).ToString());
                             MainUtil.auth(reader.GetValue(1).ToString(), reader.GetValue(2).ToString());
                         }
                     }
                 } 
                 else
                 {
-                    
                     command.CommandText = "CREATE TABLE auth (_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, email VARCHAR(355), password VARCHAR(256))";
                     command.ExecuteNonQuery();
                 }
@@ -58,9 +55,12 @@ namespace TraininCourse.Core.lib.DB
                 SqliteCommand command = new SqliteCommand();
                 command.Connection = conn;
 
-                command.CommandText = "INSERT INTO auth (email, password) VALUES (@email, @pass)";
+                command.CommandText = "DELETE FROM auth WHERE 1";
+                command.ExecuteNonQuery();
+
+                command.CommandText = "INSERT INTO auth (email, password) VALUES (@email, @password)";
                 command.Parameters.AddWithValue("email", email);
-                command.Parameters.AddWithValue("pass", pass);
+                command.Parameters.AddWithValue("password", pass);
                 id = command.ExecuteNonQuery();
 
                 conn.Close();

@@ -34,16 +34,13 @@ namespace TraininCourse.Core
                 }
                 else
                 {
-                    
-
                     MainUtil.MyPerson = userModel;
-                    //Application.Current.MainWindow.
+
                     ((MainWindow)Application.Current.MainWindow).isAuth = true; // ставим флаг, что пользователь авторизирован
                     ((MainWindow)Application.Current.MainWindow).authSuccess(); // вызываем метод успешной авторизации
 
                     MainUtil.FrameObject.Navigate(new MainPage());
 
-                    
 
                     return true;
                 }
@@ -59,5 +56,9 @@ namespace TraininCourse.Core
             return false;
         }
 
+        public static void goBack()
+        {
+            MainUtil.FrameObject.GoBack();
+        }
     }
 }

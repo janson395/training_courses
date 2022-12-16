@@ -128,7 +128,7 @@
     <Compile Include="Model\User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Courses\CourseDescPage.xaml.cs">
+    <Compile Include="View\Pages\CoursesPage\CourseDescPage.xaml.cs">
       <DependentUpon>CourseDescPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\LoginPages\LoginPage.xaml.cs">
@@ -159,7 +159,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\Pages\Courses\CourseDescPage.xaml">
+    <Page Include="View\Pages\CoursesPage\CourseDescPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

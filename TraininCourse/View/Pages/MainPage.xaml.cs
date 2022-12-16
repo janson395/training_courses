@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using TraininCourse.Core;
 using TraininCourse.Core.lib;
 using TraininCourse.Model;
+using TraininCourse.View.Pages.CoursesPage;
 
 namespace TraininCourse.View.Pages
 {
@@ -24,28 +25,26 @@ namespace TraininCourse.View.Pages
     /// </summary>
     public partial class MainPage : Page
     {
-        List<CourseList> courseList;
+        List<CourseList> _courseList;
         public MainPage()
         {
             InitializeComponent();
 
-            courseList = new List<CourseList>();
+            _courseList = new List<CourseList>();
 
             foreach (Cours courses in MainUtil.DB.Courses)
             {
-                courseList.Add(new CourseList(courses.CoursesID, courses.Title, courses.Preview));
+                _courseList.Add(new CourseList(courses.CoursesID, courses.Title, courses.Preview));
             }
 
 
-            LbCourseList.ItemsSource = courseList;
-
-            
+            LbCourseList.ItemsSource = _courseList;
         }
 
         private void LbCourseList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ListBox listbox = (ListBox)sender;
-            MessageBox.Show(listbox.SelectedIndex.ToString()) ;
+            MainUtil.FrameObject.Navigate(new CourseDescPage(_courseList[listbox.SelectedIndex].Id));
         }
     }
 }

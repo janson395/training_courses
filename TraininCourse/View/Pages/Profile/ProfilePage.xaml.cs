@@ -12,7 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TraininCourse.Core;
 using TraininCourse.Core.lib;
+using TraininCourse.Model;
+using TraininCourse.View.Pages.CoursesPage;
+using TraininCourse.View.Pages.LoginPages;
 
 namespace TraininCourse.View.Pages.Profile
 {
@@ -21,38 +25,82 @@ namespace TraininCourse.View.Pages.Profile
     /// </summary>
     public partial class ProfilePage : Page
     {
+        List<CourseList> _courseList;
+
         public ProfilePage()
         {
             InitializeComponent();
 
 
-            List<CourseList> courseList = new List<CourseList>();
+            if (!((MainWindow)Application.Current.MainWindow).isAuth)
+            {
+                MainUtil.FrameObject.Navigate(new LoginPage());
+            }
 
-            courseList.Add(new CourseList(1, "Курсы по HTML", "https://sun1-19.userapi.com/impg/17o1LzYO6PI5NEDK2kRcYor0EXI7Flta59ToFQ/Yq2Ka7_t2eM.jpg?size=1280x960&quality=96&sign=235ab3bbbcb2861879346839ba8e0feb&type=album"));
-            courseList.Add(new CourseList(2, "Курсы по HTML", "https://sun1-19.userapi.com/impg/17o1LzYO6PI5NEDK2kRcYor0EXI7Flta59ToFQ/Yq2Ka7_t2eM.jpg?size=1280x960&quality=96&sign=235ab3bbbcb2861879346839ba8e0feb&type=album"));
+            _courseList = new List<CourseList>();
 
+            if (MainUtil.MyPerson.Avatar != null)
+            {
+                IUserAva.ImageSource = new ImageLoader(MainUtil.MyPerson.Avatar).bitmap;
+            }
+            TbUserName.Text = MainUtil.MyPerson.FirstName.Trim() + " " + MainUtil.MyPerson.LastName.Trim();
+            Role role = MainUtil.DB.Roles.FirstOrDefault(u => u.RoleID == MainUtil.MyPerson.RoleID);
+            if (role.RoleName != null)
+            {
+                TbUserRole.Text = role.RoleName;
+            }
 
-            LbMyCoursesList.ItemsSource = courseList;
+            foreach (Subscribe s in MainUtil.DB.Subscribes.Where(s => s.Catalog == 1 && s.UserID == MainUtil.MyPerson.UserID))
+            {
+                Cours courses = MainUtil.DB.Courses.First(c => c.CoursesID == s.CoursesID);
+                _courseList.Add(new CourseList(courses.CoursesID, courses.Title, courses.Preview));
+            }
+
+            LbMyCoursesList.ItemsSource = _courseList;
         }
 
         private void BtnSetting_Click(object sender, RoutedEventArgs e)
         {
-
+            MainUtil.FrameObject.Navigate(new SettingPage());
         }
 
         private void BtnStudying_Click(object sender, RoutedEventArgs e)
         {
-
+            _courseList.Clear();
+            foreach (Subscribe s in MainUtil.DB.Subscribes.Where(s => s.Catalog == 1 && s.UserID == MainUtil.MyPerson.UserID))
+            {
+                Cours courses = MainUtil.DB.Courses.First(c => c.CoursesID == s.CoursesID);
+                _courseList.Add(new CourseList(courses.CoursesID, courses.Title, courses.Preview));
+            }
+            LbMyCoursesList.ItemsSource = _courseList;
         }
 
         private void BtnWillStudy_Click(object sender, RoutedEventArgs e)
         {
-
+            _courseList.Clear();
+            foreach (Subscribe s in MainUtil.DB.Subscribes.Where(s => s.Catalog == 2 && s.UserID == MainUtil.MyPerson.UserID))
+            {
+                Cours courses = MainUtil.DB.Courses.First(c => c.CoursesID == s.CoursesID);
+                _courseList.Add(new CourseList(courses.CoursesID, courses.Title, courses.Preview));
+            }
+            LbMyCoursesList.ItemsSource = _courseList;
         }
 
         private void BtnStudied_Click(object sender, RoutedEventArgs e)
         {
+            _courseList.Clear();
+            foreach (Subscribe s in MainUtil.DB.Subscribes.Where(s => s.Catalog == 3 && s.UserID == MainUtil.MyPerson.UserID))
+            {
+                Cours courses = MainUtil.DB.Courses.First(c => c.CoursesID == s.CoursesID);
+                _courseList.Add(new CourseList(courses.CoursesID, courses.Title, courses.Preview));
+            }
+            LbMyCoursesList.ItemsSource = _courseList;
+        }
 
+        private void LbMyCoursesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ListBox listbox = (ListBox)sender;
+            MainUtil.FrameObject.Navigate(new CourseDescPage(_courseList[listbox.SelectedIndex].Id));
         }
     }
 }
