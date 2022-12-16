@@ -66,41 +66,34 @@ namespace TraininCourse.View.Pages.Profile
 
         private void BtnStudying_Click(object sender, RoutedEventArgs e)
         {
-            _courseList.Clear();
-            foreach (Subscribe s in MainUtil.DB.Subscribes.Where(s => s.Catalog == 1 && s.UserID == MainUtil.MyPerson.UserID))
-            {
-                Cours courses = MainUtil.DB.Courses.First(c => c.CoursesID == s.CoursesID);
-                _courseList.Add(new CourseList(courses.CoursesID, courses.Title, courses.Preview));
-            }
-            LbMyCoursesList.ItemsSource = _courseList;
+            loadLib(1); 
         }
 
         private void BtnWillStudy_Click(object sender, RoutedEventArgs e)
         {
-            _courseList.Clear();
-            foreach (Subscribe s in MainUtil.DB.Subscribes.Where(s => s.Catalog == 2 && s.UserID == MainUtil.MyPerson.UserID))
-            {
-                Cours courses = MainUtil.DB.Courses.First(c => c.CoursesID == s.CoursesID);
-                _courseList.Add(new CourseList(courses.CoursesID, courses.Title, courses.Preview));
-            }
-            LbMyCoursesList.ItemsSource = _courseList;
+            loadLib(2);
         }
 
         private void BtnStudied_Click(object sender, RoutedEventArgs e)
         {
-            _courseList.Clear();
-            foreach (Subscribe s in MainUtil.DB.Subscribes.Where(s => s.Catalog == 3 && s.UserID == MainUtil.MyPerson.UserID))
-            {
-                Cours courses = MainUtil.DB.Courses.First(c => c.CoursesID == s.CoursesID);
-                _courseList.Add(new CourseList(courses.CoursesID, courses.Title, courses.Preview));
-            }
-            LbMyCoursesList.ItemsSource = _courseList;
+            loadLib(3);
         }
 
         private void LbMyCoursesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ListBox listbox = (ListBox)sender;
             MainUtil.FrameObject.Navigate(new CourseDescPage(_courseList[listbox.SelectedIndex].Id));
+        }
+
+        private void loadLib(int catalog)
+        {
+            _courseList.Clear();
+            foreach (Subscribe s in MainUtil.DB.Subscribes.Where(s => s.Catalog == catalog && s.UserID == MainUtil.MyPerson.UserID))
+            {
+                Cours courses = MainUtil.DB.Courses.First(c => c.CoursesID == s.CoursesID);
+                _courseList.Add(new CourseList(courses.CoursesID, courses.Title, courses.Preview));
+            }
+            LbMyCoursesList.ItemsSource = _courseList;
         }
     }
 }

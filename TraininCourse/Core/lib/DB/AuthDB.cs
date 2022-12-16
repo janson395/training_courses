@@ -31,7 +31,11 @@ namespace TraininCourse.Core.lib.DB
                         if (reader.HasRows)
                         {
                             reader.Read();
-                            MainUtil.auth(reader.GetValue(1).ToString(), reader.GetValue(2).ToString());
+                            if(!MainUtil.auth(reader.GetValue(1).ToString(), reader.GetValue(2).ToString()))
+                            {
+                                reader.Close();
+                                clear();
+                            }
                         }
                     }
                 } 
@@ -67,6 +71,21 @@ namespace TraininCourse.Core.lib.DB
 
 
                 return id;
+            }
+        }
+
+        public void clear()
+        {
+            using (var conn = new SqliteConnection("Data Source=" + _name))
+            {
+                conn.Open();
+                SqliteCommand command = new SqliteCommand();
+                command.Connection = conn;
+
+                command.CommandText = "DELETE FROM auth WHERE 1";
+                command.ExecuteNonQuery();
+
+                conn.Close();
             }
         }
     }

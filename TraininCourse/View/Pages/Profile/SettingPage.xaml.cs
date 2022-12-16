@@ -63,7 +63,7 @@ namespace TraininCourse.View.Pages.Profile
 
                 MainUtil.DB.SaveChanges();
 
-                if (TbLinkAvatar.Text != MainUtil.MyPerson.Avatar)
+                if (TbLinkAvatar.Text != null)
                 {
                     ((MainWindow)Application.Current.MainWindow).ImgUserAva.ImageSource = new ImageLoader(TbLinkAvatar.Text).bitmap; // принудительно обновить автарку пользователя в меню
                 }

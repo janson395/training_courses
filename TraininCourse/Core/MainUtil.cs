@@ -27,7 +27,7 @@ namespace TraininCourse.Core
 
                 if (userModel == null)
                 {
-                    MessageBox.Show("Аккаунт не существует",
+                    MessageBox.Show("Не удалось авторизироваться.\r\nПрчина: Ошибка данных",
                         "Системное сообщение",
                         MessageBoxButton.OK,
                         MessageBoxImage.Error);
