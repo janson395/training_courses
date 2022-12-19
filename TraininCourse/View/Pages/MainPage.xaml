@@ -34,13 +34,14 @@
                                 <StackPanel HorizontalAlignment="Center">
                                     <Image 
                                         Source="{Binding Path}"
-                                        Width="229"
-                                        Height="125"/>
+                                        Width="229" MaxWidth="229"
+                                        Height="125" MaxHeight="125" 
+                                        />
                                     <TextBlock
                                         TextAlignment="Left"
                                         HorizontalAlignment="Center"
                                         TextTrimming="CharacterEllipsis" 
-                                        Margin="0 2 0 0"
+                                        Margin="2 2 0 5"
                                         Text="{Binding Name}"
                                         FontFamily="Lato"
                                         FontSize="14"

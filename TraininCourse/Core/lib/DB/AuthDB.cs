@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using TraininCourse.View.Pages.LoginPages;
 
 namespace TraininCourse.Core.lib.DB
 {
@@ -87,6 +88,13 @@ namespace TraininCourse.Core.lib.DB
 
                 conn.Close();
             }
+        }
+
+        public void logout()
+        {
+            clear();
+            ((MainWindow)Application.Current.MainWindow).logout();
+            MainUtil.FrameObject.Navigate(new LoginPage());
         }
     }
 }

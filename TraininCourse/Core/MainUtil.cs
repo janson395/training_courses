@@ -17,6 +17,8 @@ namespace TraininCourse.Core
         public static CourseVestEntities DB { get; set; }
         public static User MyPerson { get; set; }
 
+        public static bool isAuth { get; set; }
+
         public static bool auth(string email, string pass)
         {
             try

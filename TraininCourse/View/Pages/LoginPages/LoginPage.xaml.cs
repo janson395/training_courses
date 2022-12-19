@@ -33,9 +33,11 @@ namespace TraininCourse.View.Pages.LoginPages
         {
             string pass = TsbPassword.Password;
 
-            MainUtil.auth(TbEmail.Text, pass);
-            AuthDB authDB = new AuthDB();
-            authDB.create(TbEmail.Text, pass);
+            if(MainUtil.auth(TbEmail.Text, pass))
+            {
+                AuthDB authDB = new AuthDB();
+                authDB.create(TbEmail.Text, pass);
+            }
         }
 
         private void BtnReg_Click(object sender, RoutedEventArgs e)

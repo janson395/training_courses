@@ -97,6 +97,7 @@ namespace TraininCourse
             {
                 BtnOpenProfile.Visibility = Visibility.Collapsed;
                 SPLogin.Visibility = Visibility.Visible;
+                
             }
             else
             {
@@ -120,6 +121,15 @@ namespace TraininCourse
                     BtnAddCourse.Visibility = Visibility.Collapsed;
                 }
             }
+            MainUtil.isAuth = isAuth;
+        }
+
+        public void logout()
+        {
+            isAuth = false;
+            BtnOpenProfile.Visibility = Visibility.Collapsed;
+            SPLogin.Visibility = Visibility.Visible;
+            MainUtil.isAuth = isAuth;
         }
     }
 }

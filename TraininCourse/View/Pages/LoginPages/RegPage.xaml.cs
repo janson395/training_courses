@@ -56,7 +56,7 @@ namespace TraininCourse.View.Pages.LoginPages
                         FirstName = TbFirstName.Text,
                         LastName = TbLastName.Text,
                         Password = TsbPassword.Password,
-                        RoleID = 1,
+                        RoleID = (CbIsTeacher.IsChecked == true) ? 2 : 1,
                         Avatar = null
                     });
 
@@ -75,6 +75,11 @@ namespace TraininCourse.View.Pages.LoginPages
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             MainUtil.FrameObject.Navigate(new LoginPage());
+        }
+
+        private void CbIsTeacher_Click(object sender, RoutedEventArgs e)
+        {
+            TbBtnReg.Text = (CbIsTeacher.IsChecked == true) ? "Начать обучать" : "К новым знаниям";
         }
     }
 }

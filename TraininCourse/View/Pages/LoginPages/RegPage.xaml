@@ -22,7 +22,7 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="120"/>
-                    <RowDefinition Height="240"/>
+                    <RowDefinition Height="250"/>
                 </Grid.RowDefinitions>
 
                 <StackPanel Grid.Row="0"
@@ -101,7 +101,19 @@
                                    materialDesign:HintAssist.Hint="Введите пароль"
                                    materialDesign:TextFieldAssist.HasClearButton="True"/>
                     </StackPanel>
-                    <StackPanel Margin="0 20 0 0">
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0 10 0 0">
+                        <CheckBox Content="Я учитель"
+                                  x:Name="CbIsTeacher"
+                                  Foreground="White"
+                                  Click="CbIsTeacher_Click">
+                            <CheckBox.Resources>
+                                <SolidColorBrush x:Key="MaterialDesignCheckBoxOff" Color="White"/>
+                                <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#F9A992"/>
+                            </CheckBox.Resources>
+                        </CheckBox>
+                    </StackPanel>
+                    <StackPanel Margin="0 10 0 0">
                         <Button Background="#776f85f6"
                                 Foreground="White"
                                 x:Name="BtnReg"
@@ -113,6 +125,7 @@
                                 <materialDesign:PackIcon Kind="User"
                                                          Margin="0 0 5 0"/>
                                 <TextBlock Text="К новым знаниям"
+                                           x:Name="TbBtnReg"
                                            FontWeight="SemiBold"/>
                             </StackPanel>
                         </Button>
@@ -123,7 +136,7 @@
                                 BorderThickness="0"
                                 Style="{StaticResource MaterialDesignRaisedButton}"
                                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                                Margin="0 10 0 0">
+                                Margin="0 5 0 0">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="Undo"
                                                          Margin="0 0 5 0"/>

@@ -15,6 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TraininCourse.Core;
 using TraininCourse.Core.lib;
+using TraininCourse.Core.lib.DB;
+using TraininCourse.View.Pages.LoginPages;
 
 namespace TraininCourse.View.Pages.Profile
 {
@@ -70,6 +72,12 @@ namespace TraininCourse.View.Pages.Profile
 
                 MainUtil.FrameObject.Navigate(new ProfilePage());
             }
+        }
+
+        private void BtnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            AuthDB authDB = new AuthDB();
+            authDB.logout();
         }
     }
 }

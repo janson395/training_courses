@@ -50,13 +50,7 @@ namespace TraininCourse.View.Pages.Profile
                 TbUserRole.Text = role.RoleName;
             }
 
-            foreach (Subscribe s in MainUtil.DB.Subscribes.Where(s => s.Catalog == 1 && s.UserID == MainUtil.MyPerson.UserID))
-            {
-                Cours courses = MainUtil.DB.Courses.First(c => c.CoursesID == s.CoursesID);
-                _courseList.Add(new CourseList(courses.CoursesID, courses.Title, courses.Preview));
-            }
-
-            LbMyCoursesList.ItemsSource = _courseList;
+            loadLib(1);
         }
 
         private void BtnSetting_Click(object sender, RoutedEventArgs e)
@@ -87,11 +81,16 @@ namespace TraininCourse.View.Pages.Profile
 
         private void loadLib(int catalog)
         {
-            _courseList.Clear();
-            foreach (Subscribe s in MainUtil.DB.Subscribes.Where(s => s.Catalog == catalog && s.UserID == MainUtil.MyPerson.UserID))
+            try
             {
-                Cours courses = MainUtil.DB.Courses.First(c => c.CoursesID == s.CoursesID);
+                LbMyCoursesList.Items.Clear();
+            } catch (Exception ex) { }
+            _courseList.Clear();
+            foreach (Subscribe sub in MainUtil.DB.Subscribes.Where(s => s.Catalog == catalog && s.UserID == MainUtil.MyPerson.UserID))
+            {
+                Cours courses = MainUtil.DB.Courses.First(c => c.CoursesID == sub.CoursesID);
                 _courseList.Add(new CourseList(courses.CoursesID, courses.Title, courses.Preview));
+                //LbMyCoursesList.Items.Add(new CourseList(courses.CoursesID, courses.Title, courses.Preview));
             }
             LbMyCoursesList.ItemsSource = _courseList;
         }

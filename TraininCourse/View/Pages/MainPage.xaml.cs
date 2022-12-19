@@ -35,7 +35,7 @@ namespace TraininCourse.View.Pages
             foreach (Cours courses in MainUtil.DB.Courses)
             {
                 _courseList.Add(new CourseList(courses.CoursesID, courses.Title, courses.Preview));
-            }
+            }   
 
 
             LbCourseList.ItemsSource = _courseList;
