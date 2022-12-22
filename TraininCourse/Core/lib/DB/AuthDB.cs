@@ -12,12 +12,13 @@ namespace TraininCourse.Core.lib.DB
 {
     public class AuthDB
     {
-        private string _name = "userAuth.db";
+        private string _name = "userAuth.db"; // имя файла БД
 
         public AuthDB()
         {
             using (var conn = new SqliteConnection("Data Source=" + _name))
             {
+                // открываем соединение с локальной БД
                 conn.Open();
                 SqliteCommand command = new SqliteCommand();
                 command.Connection = conn;

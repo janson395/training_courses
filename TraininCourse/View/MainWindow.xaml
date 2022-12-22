@@ -21,9 +21,6 @@
             <RowDefinition Height="40"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <!--<Image Grid.RowSpan="2"
-               Source="/Images/main_bg.jpg"
-               Stretch="UniformToFill"/>-->
         <StackPanel Background="#21273D"/>
         <TextBlock HorizontalAlignment="Left"
                    VerticalAlignment="Center"
