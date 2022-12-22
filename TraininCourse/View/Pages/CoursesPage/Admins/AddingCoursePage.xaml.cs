@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TraininCourse.Core;
+using TraininCourse.Model;
 
 namespace TraininCourse.View.Pages.CoursesPage.Admins
 {
@@ -49,6 +50,15 @@ namespace TraininCourse.View.Pages.CoursesPage.Admins
             } 
             else
             {
+                if(TbTitle.Text.Length > 50)
+                {
+                    MessageBox.Show("Длинна заголовка курса не должна превышать 50 симоволов!",
+                        "Ошибка",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error);
+                    return;
+                }
+
                 if(MainUtil.DB.Courses.Count(c=> c.Title == TbTitle.Text) > 0)
                 {
                     MessageBox.Show("Курс с таким заголовком уже существует",
@@ -59,7 +69,7 @@ namespace TraininCourse.View.Pages.CoursesPage.Admins
                 else
                 {
 
-                    var course = new Model.Cours
+                    var course = new Cours
                     {
                         Title = TbTitle.Text,
                         Preview = TbPreview.Text,

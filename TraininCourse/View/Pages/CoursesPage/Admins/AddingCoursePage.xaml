@@ -12,103 +12,93 @@
 
     <Grid>
         <Border HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                CornerRadius="25"
-                Width="400"
-                Height="400"
-                Background="#1F2434"
-                Effect="{StaticResource MaterialDesignElevationShadow16}">
-
+                    VerticalAlignment="Center"
+                    CornerRadius="25"
+                    Width="950"
+                    Height="500">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="80"/>
-                    <RowDefinition Height="320"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-
-                <StackPanel Grid.Row="0"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Top"
-                            Margin="0 20 0 0">
-
-                    <TextBlock 
-                        Margin="0 5 0 0"
-                        Text="Добавление курса"
-                        FontSize="26"
-                        FontWeight="Bold"
-                        Foreground="White"
-                        TextAlignment="Center"/>
-                </StackPanel>
-
-                <StackPanel Grid.Row="1"
-                            HorizontalAlignment="Center"
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Left"
                             VerticalAlignment="Top">
-
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Subtitles"
+                    <Image Source="/Images/ic_user.png"
+                           Width="227"
+                           Height="123"
+                           x:Name="IPreview"
+                           VerticalAlignment="Top"/>
+                    <StackPanel Orientation="Vertical"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Margin="7 0 0 0">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Subtitles"
                                                  Margin="0 7 5 0"
                                                  Foreground="#cfcfcf"/>
-                        <TextBox Width="200"
+                            <TextBox Width="300"
                                    x:Name="TbTitle"
                                    FontSize="15"
                                    Foreground="#cfcfcf"
                                    materialDesign:HintAssist.Hint="Заголовок курса"
                                    materialDesign:TextFieldAssist.HasClearButton="True"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Image"
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Image"
                                                  Margin="0 7 5 0"
                                                  Foreground="#cfcfcf"/>
-                        <TextBox Width="200"
+                            <TextBox Width="300"
                                    x:Name="TbPreview"
                                    FontSize="15"
                                    Foreground="#cfcfcf"
                                    materialDesign:HintAssist.Hint="Ссылка на изображение"
                                    materialDesign:TextFieldAssist.HasClearButton="True"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="ImageDescription"
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ImageDescription"
                                                  Margin="0 7 5 0"
                                                  Foreground="#cfcfcf"/>
-                        <RichTextBox Width="200"
+                            <RichTextBox Width="300"
                                    MaxHeight="170"
                                    x:Name="TbDescription"
                                    FontSize="15"
                                    Foreground="#cfcfcf"
                                    materialDesign:HintAssist.Hint=" Описание курса"
                                    materialDesign:TextFieldAssist.HasClearButton="True"/>
-                    
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Link"
+
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Link"
                                                  Margin="0 7 5 0"
                                                  Foreground="#cfcfcf"/>
-                        <TextBox Width="200"
+                            <TextBox Width="300"
                                    x:Name="TbData"
                                    FontSize="15"
                                    Foreground="#cfcfcf"
                                    materialDesign:HintAssist.Hint="Ссылка на материал"
                                    materialDesign:TextFieldAssist.HasClearButton="True"/>
 
-                    </StackPanel>
-                    <Button Background="#776f85f6"
+                        </StackPanel>
+                        <Button Background="#776f85f6"
                                 Foreground="White"
+                                Width="150"
                                 x:Name="BtnAddCourse"
                                 Click="BtnAddCourse_Click"
                                 BorderThickness="0"
                                 Style="{StaticResource MaterialDesignRaisedButton}"
                                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                 Margin="0 10 0 0">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Add"
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Add"
                                                          Margin="0 0 5 0"/>
-                            <TextBlock Text="Добавить курс"
+                                <TextBlock Text="Добавить курс"
                                            FontWeight="SemiBold"/>
-                        </StackPanel>
-                    </Button>
-
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
                 </StackPanel>
             </Grid>
-
         </Border>
     </Grid>
 </Page>
