@@ -38,15 +38,21 @@
                                    Foreground="White">
                             Course name
                         </TextBlock>
-                        <TextBlock x:Name="TDesc"
+                        <ScrollViewer MaxHeight="350" 
+                                      VerticalScrollBarVisibility="Auto">
+                            <TextBlock x:Name="TDesc"
                                    HorizontalAlignment="Left"
                                    Margin="0 5 0 0"
                                    FontSize="16"
                                    MaxWidth="500"
                                    TextWrapping="Wrap"
-                                   Foreground="#77FFFFFF">
+                                   Foreground="#77FFFFFF"
+                                   ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                                   ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                   ScrollViewer.CanContentScroll="True">
                             Course Desc
-                        </TextBlock>
+                            </TextBlock>
+                        </ScrollViewer>
                         <Button x:Name="BtnStart"
                                 Margin="0 5 0 0"
                                 Width="150"

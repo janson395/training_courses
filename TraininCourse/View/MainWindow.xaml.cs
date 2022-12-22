@@ -19,6 +19,7 @@ using TraininCourse.Core.lib;
 using TraininCourse.Core.lib.DB;
 using TraininCourse.Model;
 using TraininCourse.View.Pages;
+using TraininCourse.View.Pages.CoursesPage.Admins;
 using TraininCourse.View.Pages.LoginPages;
 using TraininCourse.View.Pages.Profile;
 
@@ -88,7 +89,7 @@ namespace TraininCourse
 
         private void BtnAddCourse_Click(object sender, RoutedEventArgs e)
         {
-
+            MainUtil.FrameObject.Navigate(new AddingCoursePage());
         }
 
         public void authSuccess()

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Пользователь\Desktop\training_courses\TraininCourse\obj\Debug\
+C:\Users\Sanya\source\repos\training_courses\TraininCourse\obj\Debug\
 TraininCourse
 none
 false
 DEBUG;TRACE
-C:\Users\Пользователь\Desktop\training_courses\TraininCourse\App.xaml
-7773713760
+C:\Users\Sanya\source\repos\training_courses\TraininCourse\App.xaml
+8-1070480683
 2739969757
-221239432153
-1341643830451
-View\MainWindow.xaml;View\Pages\CoursesPage\CourseDescPage.xaml;View\Pages\LoginPages\LoginPage.xaml;View\Pages\LoginPages\RegPage.xaml;View\Pages\MainPage.xaml;View\Pages\Profile\ProfilePage.xaml;View\Pages\Profile\SettingPage.xaml;
+23-529075936
+1341860746049
+View\MainWindow.xaml;View\Pages\CoursesPage\Admins\AddingCoursePage.xaml;View\Pages\CoursesPage\CourseDescPage.xaml;View\Pages\LoginPages\LoginPage.xaml;View\Pages\LoginPages\RegPage.xaml;View\Pages\MainPage.xaml;View\Pages\Profile\ProfilePage.xaml;View\Pages\Profile\SettingPage.xaml;
 
 False
 

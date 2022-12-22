@@ -90,9 +90,9 @@ namespace TraininCourse.View.Pages.Profile
             {
                 Cours courses = MainUtil.DB.Courses.First(c => c.CoursesID == sub.CoursesID);
                 _courseList.Add(new CourseList(courses.CoursesID, courses.Title, courses.Preview));
-                //LbMyCoursesList.Items.Add(new CourseList(courses.CoursesID, courses.Title, courses.Preview));
+                LbMyCoursesList.Items.Add(new CourseList(courses.CoursesID, courses.Title, courses.Preview));
             }
-            LbMyCoursesList.ItemsSource = _courseList;
+            //LbMyCoursesList.ItemsSource = _courseList;
         }
     }
 }

@@ -27,6 +27,7 @@ namespace TraininCourse.View.Pages.CoursesPage
     {
         private int _id = 0;
         private Subscribe subscribe;
+        private bool ignoreSelection = false;
 
         public CourseDescPage(int id)
         {
@@ -45,7 +46,21 @@ namespace TraininCourse.View.Pages.CoursesPage
                 subscribe = MainUtil.DB.Subscribes.FirstOrDefault(s => s.UserID == MainUtil.MyPerson.UserID && s.CoursesID == _id);
                 if(subscribe != null)
                 {
+                    ignoreSelection = true;
                     CbCatalog.SelectedIndex = subscribe.Catalog - 1 ;
+
+                    switch (subscribe.Catalog)
+                    {
+                        case 1:
+                            TbBtnStart.Text = "Продолжить";
+                            break;
+                        case 2:
+                            TbBtnStart.Text = "Приступить";
+                            break;
+                        case 3:
+                            TbBtnStart.Text = "Возобновить";
+                            break;
+                    }
                 }
             } 
             else
@@ -66,18 +81,34 @@ namespace TraininCourse.View.Pages.CoursesPage
             } 
             else
             {
-                MainUtil.DB.Subscribes.Add(new Subscribe
+                getSubsribe();
+
+                if (subscribe == null)
                 {
-                    CoursesID = _id,
-                    UserID = MainUtil.MyPerson.UserID,
-                    Catalog = 1
-                });
-                MainUtil.DB.SaveChanges();
+                    MainUtil.DB.Subscribes.Add(new Subscribe
+                    {
+                        CoursesID = _id,
+                        UserID = MainUtil.MyPerson.UserID,
+                        Catalog = 1
+                    });
+                    MainUtil.DB.SaveChanges();
+                } 
+                else
+                {
+                    subscribe.Catalog = 1;
+                    MainUtil.DB.SaveChanges();
+                }
             }
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (ignoreSelection)
+            {
+                ignoreSelection = false;
+                return;
+            }
+
             ComboBox comboBox = sender as ComboBox;
             int selection = comboBox.SelectedIndex + 1;
 
@@ -101,6 +132,24 @@ namespace TraininCourse.View.Pages.CoursesPage
                 MainUtil.DB.SaveChanges();
             }
             MainUtil.DB.SaveChanges();
+
+            switch (subscribe.Catalog)
+            {
+                case 1:
+                    TbBtnStart.Text = "Продолжить";
+                    break;
+                case 2:
+                    TbBtnStart.Text = "Приступить";
+                    break;
+                case 3:
+                    TbBtnStart.Text = "Возобновить";
+                    break;
+            }
+
+            MessageBox.Show("Курс успешно добавлен в вашу библиотеку", 
+                "Успешно",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information);
         }
 
         private void getSubsribe()

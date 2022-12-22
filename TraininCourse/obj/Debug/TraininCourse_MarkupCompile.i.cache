@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Sanya\source\repos\training_courses\TraininCourse\App.xaml
-7773713760
+8-1070480683
 2739969757
-23-842656465
+241683802742
 1341860746049
-View\MainWindow.xaml;View\Pages\CoursesPage\CourseDescPage.xaml;View\Pages\LoginPages\LoginPage.xaml;View\Pages\LoginPages\RegPage.xaml;View\Pages\MainPage.xaml;View\Pages\Profile\ProfilePage.xaml;View\Pages\Profile\SettingPage.xaml;
+View\MainWindow.xaml;View\Pages\CoursesPage\Admins\AddingCoursePage.xaml;View\Pages\CoursesPage\CourseDescPage.xaml;View\Pages\LoginPages\LoginPage.xaml;View\Pages\LoginPages\RegPage.xaml;View\Pages\MainPage.xaml;View\Pages\Profile\ProfilePage.xaml;View\Pages\Profile\SettingPage.xaml;
 
 True
 
