@@ -67,7 +67,8 @@ namespace TraininCourse.View.Pages.Profile
 
                 if (TbLinkAvatar.Text != null)
                 {
-                    ((MainWindow)Application.Current.MainWindow).ImgUserAva.ImageSource = new ImageLoader(TbLinkAvatar.Text).bitmap; // принудительно обновить автарку пользователя в меню
+                    // принудительно обновить автарку пользователя в меню
+                    ((MainWindow)Application.Current.MainWindow).ImgUserAva.ImageSource = new ImageLoader(TbLinkAvatar.Text).bitmap; 
                 }
 
                 MainUtil.FrameObject.Navigate(new ProfilePage());
