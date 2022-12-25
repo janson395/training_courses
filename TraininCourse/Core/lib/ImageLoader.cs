@@ -13,12 +13,19 @@ namespace TraininCourse.Core.lib
         public BitmapImage bitmap { get; set; }
 
         public ImageLoader(string url) {
-            BitmapImage bitmap = new BitmapImage();
-            bitmap.BeginInit();
-            bitmap.UriSource = new Uri(url, UriKind.Absolute);
-            bitmap.EndInit();
+            try
+            {
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(url, UriKind.Absolute);
+                bitmap.EndInit();
 
-            this.bitmap = bitmap;
+                this.bitmap = bitmap;
+            } 
+            catch (Exception e)
+            {
+                this.bitmap = null;
+            }
         }
 
 

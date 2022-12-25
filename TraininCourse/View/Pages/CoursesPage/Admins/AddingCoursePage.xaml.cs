@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TraininCourse.Core;
+using TraininCourse.Core.lib;
 using TraininCourse.Model;
 
 namespace TraininCourse.View.Pages.CoursesPage.Admins
@@ -91,6 +92,11 @@ namespace TraininCourse.View.Pages.CoursesPage.Admins
                     MainUtil.FrameObject.Navigate(new CourseDescPage(course.CoursesID));
                 }
             }
+        }
+
+        private void TbPreview_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            IPreview.Source = new ImageLoader(TbPreview.Text).bitmap;
         }
     }
 }

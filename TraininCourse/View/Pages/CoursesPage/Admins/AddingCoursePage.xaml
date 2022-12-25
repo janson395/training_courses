@@ -52,6 +52,7 @@
                                    x:Name="TbPreview"
                                    FontSize="15"
                                    Foreground="#cfcfcf"
+                                   TextChanged="TbPreview_TextChanged"
                                    materialDesign:HintAssist.Hint="Ссылка на изображение"
                                    materialDesign:TextFieldAssist.HasClearButton="True"/>
                         </StackPanel>

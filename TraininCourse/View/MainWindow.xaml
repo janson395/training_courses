@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:TraininCourse"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
+        Title="Курсывест"
         Height="600" 
         Width="1000"
         WindowStyle="None"
