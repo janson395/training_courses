@@ -251,3 +251,5 @@ C:\Users\Пользователь\source\repos\training_courses\TraininCourse\ob
 C:\Users\Пользователь\source\repos\training_courses\TraininCourse\obj\Debug\TraininCourse.csproj.CopyComplete
 C:\Users\Пользователь\source\repos\training_courses\TraininCourse\obj\Debug\TraininCourse.exe
 C:\Users\Пользователь\source\repos\training_courses\TraininCourse\obj\Debug\TraininCourse.pdb
+C:\Users\Пользователь\Desktop\training_courses\TraininCourse\obj\Debug\View\Pages\CoursesPage\Admins\AddingCoursePage.g.cs
+C:\Users\Пользователь\Desktop\training_courses\TraininCourse\obj\Debug\View\Pages\CoursesPage\Admins\AddingCoursePage.baml
